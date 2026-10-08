@@ -1,0 +1,16 @@
+# Copilot instructions
+
+This repo is an open-source developer portfolio template. Read `AGENTS.md` for
+the working rules and `PERSONALIZE.md` for the one-prompt setup recipe.
+
+Key rules:
+
+- Almost all edits happen in two files: `config/site.config.ts` (identity,
+  accent, socials, section toggles) and `data/portfolio.ts` (all content).
+- Do not touch `app/`, `components/`, `lib/`, or any build or config file.
+- Never use em dashes or en dashes. Use commas, periods, colons, or
+  parentheses. Apply `.claude/skills/humanizer/SKILL.md` to all prose.
+- For visual changes, follow `DESIGN_SYSTEM.md`.
+- Verify with `npm run build` before finishing.
+- Commit under the user's git profile only. No model or AI attribution in
+  commits or PRs (no `Co-Authored-By` trailer, no "Generated with" line).

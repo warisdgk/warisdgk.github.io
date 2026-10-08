@@ -1,10 +1,6 @@
 MIT License
 
-<<<<<<< HEAD
-Copyright (c) 2026 Muhammad Waris
-=======
-Copyright (c) 2026 Muhammad Raza
->>>>>>> eb02a32 (initial commit)
+Copyright (c) 2025 Siqi Chen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-<<<<<<< HEAD
-=======
-
----
-
-This project bundles two third-party skills under .claude/skills, each MIT
-licensed and credited in .claude/skills/CREDITS.md:
-  - humanizer (https://github.com/blader/humanizer)
-  - ui-ux-pro-max (https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
->>>>>>> eb02a32 (initial commit)

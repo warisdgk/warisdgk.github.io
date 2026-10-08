@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens. Light mode is the default :root; dark mode overrides under
+ * .dark (next-themes toggles the class on <html>). Values are "R G B" so
+ * Tailwind's <alpha-value> works. The accent is injected at runtime from
+ * config/site.config.ts in app/layout.tsx, so changing the config rebrands
+ * the whole site.
+ *
+ * Editorial direction: warm paper neutrals in light, true near-black in dark
+ * (OLED-friendly), one blue accent. Serif display + sans body + mono metadata.
+ */
+:root {
+  --background: 250 250 248; /* warm paper white */
+  --foreground: 18 18 20;
+  --primary: 24 24 27;
+  --secondary: 63 63 70;
+  --muted: 240 240 236;
+  --muted-foreground: 99 99 105; /* AA: ~5.6:1 on light background */
+  --border: 226 226 221;
+  --card: 255 255 255;
+  --accent-foreground: 255 255 255;
+  /* --accent is set inline by layout.tsx from siteConfig.accentRGB */
+}
+
+.dark {
+  --background: 9 9 11;
+  --foreground: 244 244 245;
+  --primary: 250 250 250;
+  --secondary: 161 161 170;
+  --muted: 24 24 27;
+  --muted-foreground: 139 139 147; /* AA: ~5.8:1 on dark background */
+  --border: 38 38 42;
+  --card: 16 16 18;
+  --accent-foreground: 255 255 255;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  /* Editorial serif: let Fraunces pick its optical size per rendered size. */
+  .font-display {
+    font-optical-sizing: auto;
+  }
+  ::selection {
+    background-color: rgb(var(--accent) / 0.25);
+  }
+  /* Visible keyboard focus everywhere, per the design checklist. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background rounded-sm;
+  }
+}
+
+@layer utilities {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 md:px-8;
+  }
+  .container-rail {
+    @apply mx-auto w-full max-w-rail px-6 md:px-10 lg:px-16;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Mono eyebrow: small uppercase technical label used across sections. */
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent;
+  }
+  /* Subtle grid texture for the mobile hero only. */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 55% at 30% 0%, #000 30%, transparent 100%);
+  }
+}
+
+/* Honor reduced-motion: drop non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
