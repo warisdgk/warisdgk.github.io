@@ -73,7 +73,7 @@ export function Rail() {
           initial="hidden"
           animate="show"
           variants={fade}
-          className="mt-4 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance xl:text-6xl"
+          className="mt-4 max-w-sm font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance xl:text-6xl"
         >
           {siteConfig.name}
         </motion.h1>

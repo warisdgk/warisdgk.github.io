@@ -45,7 +45,7 @@ export function Hero() {
           initial="hidden"
           animate="show"
           variants={fade}
-          className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl"
+          className="max-w-xl font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance sm:text-6xl"
         >
           {siteConfig.name}
         </motion.h1>
