@@ -44,6 +44,7 @@ export interface Project {
   description: string;
   href: string;
   tech: string[];
+  icon?: string;
   /** Optional tag shown on the card, e.g. "Live" or "Open Source". */
   tag?: string;
 }
@@ -59,6 +60,7 @@ export interface Certification {
   name: string;
   issuer: string;
   year: string;
+  href?: string;
 }
 
 export interface PortfolioData {
@@ -73,8 +75,8 @@ export interface PortfolioData {
 export const portfolio: PortfolioData = {
   about: {
     paragraphs: [
-      'I’m a Senior Android Engineer with a decade of industry experience, currently contributing to e& UAE’s Etisalat Digital App, serving 10M+ users. Previously, I worked on ImagineArt AI, a large-scale generative AI platform for the creative industry that has processed 2.5+ billion images. My EMM based enterprise solution DAO/BK, supporting 4,000+ couriers responsible for 80% of distribution in Denmark',
-      "My extensive experience in FinTech have fundamentally shaped how I engineer software—with a strong emphasis on security, scalability, reliability, compliance & trust while navigating the complexities of financial transactions, data protection, fraud prevention, KYC/AML compliance, and regulatory requirements. I'm open to Senior, Lead, or Staff Engineer roles, remote or hybrid.",
+      'I’m a Senior **Android Engineer** with a decade of industry experience, currently contributing to e& UAE’s Etisalat Digital App, serving **10M+ users**. Previously, I worked on ImagineArt AI, a large-scale generative AI platform for the creative industry that has processed **2.5+ billion images**. My EMM based enterprise solution DAO/BK, supporting **4,000+ couriers** responsible for **80%** of distribution in Denmark.',
+      'My extensive experience in **FinTech** has fundamentally shaped how I engineer software, with a strong emphasis on **security**, **scalability**, **reliability**, **compliance**, and **trust** while navigating the complexities of **financial transactions**, data protection, **fraud prevention**, KYC/AML compliance, and regulatory requirements. I’m open to Senior, Lead, or Staff Engineer roles, remote or hybrid.',
     ],
     highlights: [
       { label: 'Experience', value: '10+ years' },
@@ -209,6 +211,7 @@ export const portfolio: PortfolioData = {
 
   projects: [
     {
+      icon: '/projects/ic-etisalat.png',
       name: 'etisalat UAE',
       description:
         'The official etisalat UAE app. Everything etisalat, right in your pocket. Manage your mobile, home internet, devices and more from one simple app. Recharge in seconds, pay bills, unlock deals you wont find anywhere else, and get help around the clock. No queues, no store visits.',
@@ -217,6 +220,7 @@ export const portfolio: PortfolioData = {
       tag: 'Live on Google Play',
     },
     {
+      icon: '/projects/ic-digital-sharjah.png',
       name: 'Digital Sharjah',
       description:
         '“Digital Sharjah” is a unified platform designed to facilitate rapid access to the services provided by the governmental entities of the Emirate of Sharjah.',
@@ -225,6 +229,7 @@ export const portfolio: PortfolioData = {
       tag: 'Live on Google Play',
     },
     {
+      icon: '/projects/ic-imagine-art.png',
       name: 'ImagineArt AI',
       description:
         'Discover the easiest way to create stunning visuals like images, logos, posters, flyers, stickers, and more with the power of Generative AI! Whether it’s for business, personal use, or just for fun, ImagineArt empowers everyone to design anything from anywhere.',
@@ -233,6 +238,7 @@ export const portfolio: PortfolioData = {
       tag: 'Live on Google Play',
     },
     {
+      icon: '/projects/ic-gokada.png',
       name: 'Gokada superapp',
       description: 'Gokada is an on-demand motorcycle delivery service and food ordering/delivery service available in Lagos, Nigeria.',
       href: 'https://play.google.com/store/apps/details?id=ng.gokada.superapp_client&hl=en&gl=US',
@@ -240,6 +246,7 @@ export const portfolio: PortfolioData = {
       tag: 'Live on Google Play',
     },
     {
+      icon: '/projects/ic-dao.png',
       name: 'DAO',
       description: 'DAO delivers your parcels, letters, magazines, and newspapers every day, all year round, and always to wherever suits you best - to the kiosk, in the mailbox, or right to your door.',
       href: 'https://dao.as/en/',
@@ -258,10 +265,11 @@ export const portfolio: PortfolioData = {
   ],
 
   certifications: [
-    { name: 'Jetpack Compose Crash course for Android with Kotlin', issuer: 'Udemy', year: '2020' },
-    { name: 'Cultural Awareness - Middle East', issuer: 'VisionetSystems', year: '2026' },
-    { name: 'Generative AI & Business', issuer: 'VisionetSystems', year: '2026' },
-    { name: 'Generative AI for Everyone', issuer: 'VisionetSystems', year: '2025' },
-    { name: 'Information Security Foundation', issuer: 'VisionetSystems', year: '2024' },
+    { name: 'Jetpack Compose Crash course for Android with Kotlin', issuer: 'Udemy', year: '2020', href: 'https://www.udemy.com/certificate/UC-a11efdea-e1a4-43b2-b083-07bcddaeb35b/' },
+    { name: 'Cultural Awareness - Middle East', issuer: 'VisionetSystems', year: '2026', href: 'https://www.linkedin.com/in/mwarisdev/overlay/Certifications/456313349/treasury/?profileId=ACoAAAuSGjoBByfVad_I_s5nvneWLQvppWa7f9s' },
+    { name: 'GenAI Advance Tech Beyond Prompting', issuer: 'VisionetSystems', year: '2026', href: 'https://www.linkedin.com/in/mwarisdev/overlay/Certifications/456636805/treasury/?profileId=ACoAAAuSGjoBByfVad_I_s5nvneWLQvppWa7f9s'},
+    { name: 'Generative AI & Business', issuer: 'VisionetSystems', year: '2026', href: 'https://www.linkedin.com/in/mwarisdev/overlay/Certifications/456241668/treasury/?profileId=ACoAAAuSGjoBByfVad_I_s5nvneWLQvppWa7f9s'},
+    { name: 'Generative AI for Everyone', issuer: 'VisionetSystems', year: '2025', href: 'https://www.linkedin.com/in/mwarisdev/overlay/Certifications/456123213/treasury/?profileId=ACoAAAuSGjoBByfVad_I_s5nvneWLQvppWa7f9s' },
+    { name: 'Information Security Foundation', issuer: 'VisionetSystems', year: '2024',href: 'https://www.linkedin.com/in/mwarisdev/overlay/Certifications/456046474/treasury/?profileId=ACoAAAuSGjoBByfVad_I_s5nvneWLQvppWa7f9s' },
   ],
 };

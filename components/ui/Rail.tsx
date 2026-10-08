@@ -64,7 +64,7 @@ export function Rail() {
   return (
     <header className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:max-h-screen lg:w-[42%] lg:flex-col lg:justify-between lg:py-24 xl:w-[40%]">
       <div>
-        <motion.p custom={0} initial="hidden" animate="show" variants={fade} className="eyebrow">
+        <motion.p custom={0} initial="hidden" animate="show" variants={fade} className="eyebrow !text-xl">
           {siteConfig.role}
         </motion.p>
 
@@ -73,7 +73,7 @@ export function Rail() {
           initial="hidden"
           animate="show"
           variants={fade}
-          className="mt-4 max-w-sm font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance xl:text-6xl"
+          className="mt-4 max-w-sm font-display text-5xl font-semibold leading-[1.02] tracking-tight text-balance xl:text-5xl"
         >
           {siteConfig.name}
         </motion.h1>

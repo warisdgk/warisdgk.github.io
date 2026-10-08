@@ -1,6 +1,19 @@
+import { Fragment } from 'react';
 import { Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { portfolio } from '@/data/portfolio';
+
+function renderFormattedText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>;
+    }
+
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export function About() {
   const { paragraphs, highlights } = portfolio.about;
@@ -17,7 +30,7 @@ export function About() {
                   : 'text-base leading-relaxed text-secondary text-pretty md:text-lg'
               }
             >
-              {p}
+              {renderFormattedText(p)}
             </p>
           </Reveal>
         ))}

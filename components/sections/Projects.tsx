@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { portfolio } from '@/data/portfolio';
+import { asset } from '@/lib/asset';
 
 export function Projects() {
   return (
@@ -17,10 +18,18 @@ export function Projects() {
                 className="group -mx-4 block rounded-lg p-4 transition-colors hover:bg-card hover:shadow-sm cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-xl font-semibold leading-snug transition-colors group-hover:text-accent">
-                    {project.name}
+                  <h3 className="flex min-w-0 items-center gap-2.5 font-display text-xl font-semibold leading-snug transition-colors group-hover:text-accent">
+                    {project.icon && (
+                      <img
+                        src={asset(project.icon)}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-10 w-10 shrink-0 rounded-lg border border-border object-cover"
+                      />
+                    )}
+                    <span className="min-w-0">{project.name}</span>
                     <ArrowUpRight
-                      className="ml-1 inline-block h-4 w-4 -translate-y-0.5 text-muted-foreground transition-all group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:text-accent"
+                      className="h-4 w-4 shrink-0 -translate-y-0.5 text-muted-foreground transition-all group-hover:-translate-y-1 group-hover:translate-x-0.5 group-hover:text-accent"
                       aria-hidden="true"
                     />
                   </h3>
