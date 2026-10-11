@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220" fill="none">
+  <rect x="36" y="66" width="168" height="88" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="120" y="104" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">app</text>
+  <text x="120" y="128" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">navigation</text>
+  <rect x="276" y="66" width="168" height="88" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="360" y="104" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">feature</text>
+  <text x="360" y="128" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">screens</text>
+  <rect x="516" y="66" width="168" height="88" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="600" y="104" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">core</text>
+  <text x="600" y="128" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">design</text>
+  <path d="M204 110H268" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M260 104L276 110L260 116" stroke="#18181b" stroke-width="1.5" fill="none"/>
+  <path d="M444 110H508" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M500 104L516 110L500 116" stroke="#18181b" stroke-width="1.5" fill="none"/>
+</svg>

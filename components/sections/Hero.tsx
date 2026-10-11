@@ -5,6 +5,7 @@ import { Download, MapPin } from 'lucide-react';
 import { siteConfig } from '@/config/site.config';
 import { TypingText } from '@/components/ui/TypingText';
 import { SocialIcon } from '@/components/ui/SocialIcon';
+import { BlogButton } from '@/components/blog/BlogButton';
 import { asset } from '@/lib/asset';
 
 const fade = {
@@ -77,11 +78,11 @@ export function Hero() {
           initial="hidden"
           animate="show"
           variants={fade}
-          className="mt-8 flex flex-wrap items-center gap-3"
+          className="mt-8 flex w-full flex-wrap items-center justify-center gap-3"
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-md bg-accent-solid px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-md border border-transparent bg-accent-solid px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5 cursor-pointer"
           >
             Get in touch
           </a>
@@ -96,6 +97,7 @@ export function Hero() {
               Download CV
             </a>
           )}
+          {siteConfig.blog.enabled && <BlogButton variant="action" />}
         </motion.div>
 
         <motion.div

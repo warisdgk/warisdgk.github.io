@@ -3,6 +3,7 @@ import { Inter, Fraunces, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/config/site.config';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
+import { BackToTop } from '@/components/ui/BackToTop';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -105,7 +106,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <BackToTop />
+        </ThemeProvider>
       </body>
     </html>
   );

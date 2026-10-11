@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="300" viewBox="0 0 720 300" fill="none">
+  <rect x="48" y="40" width="624" height="220" rx="14" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M48 84H672" stroke="#18181b" stroke-width="1.5"/>
+  <circle cx="76" cy="62" r="6" stroke="#18181b" stroke-width="1.5"/>
+  <circle cx="98" cy="62" r="6" stroke="#18181b" stroke-width="1.5"/>
+  <circle cx="120" cy="62" r="6" stroke="#18181b" stroke-width="1.5"/>
+  <text x="84" y="132" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28"># H1</text>
+  <text x="84" y="168" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">## H2</text>
+  <text x="84" y="198" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">### H3</text>
+  <text x="84" y="224" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">#### H4  ##### H5  ###### H6</text>
+  <path d="M400 124H624" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M400 152H592" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M400 180H608" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M400 208H560" stroke="#18181b" stroke-width="1.5"/>
+</svg>

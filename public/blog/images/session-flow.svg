@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" fill="none">
+  <rect x="24" y="36" width="180" height="72" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="114" y="78" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">SessionStore</text>
+  <rect x="270" y="36" width="180" height="72" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="360" y="78" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">Repository</text>
+  <rect x="516" y="36" width="180" height="72" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="606" y="78" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">Screen</text>
+  <path d="M204 72H262" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M254 66L270 72L254 78" stroke="#18181b" stroke-width="1.5" fill="none"/>
+  <path d="M450 72H508" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M500 66L516 72L500 78" stroke="#18181b" stroke-width="1.5" fill="none"/>
+  <path d="M360 108V176" stroke="#18181b" stroke-width="1.5"/>
+  <path d="M354 168L360 184L366 168" stroke="#18181b" stroke-width="1.5" fill="none"/>
+  <text x="376" y="148" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">401</text>
+  <rect x="270" y="184" width="180" height="72" rx="12" stroke="#18181b" stroke-width="1.5"/>
+  <text x="360" y="226" text-anchor="middle" fill="#18181b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">Lock screen</text>
+</svg>

@@ -12,6 +12,7 @@ import { Projects } from '@/components/sections/Projects';
 import { Education } from '@/components/sections/Education';
 import { Certifications } from '@/components/sections/Certifications';
 import { Contact } from '@/components/sections/Contact';
+import { BlogButton } from '@/components/blog/BlogButton';
 
 // Map each toggle key to its section. Only enabled ones render, in nav order.
 const registry = {
@@ -40,6 +41,11 @@ export default function Home() {
         <Rail />
         <main className="lg:w-[58%] lg:py-24 xl:w-[60%]">
           <Hero />
+          {siteConfig.blog.enabled && (
+            <div className="hidden lg:flex lg:justify-end">
+              <BlogButton />
+            </div>
+          )}
           {sections.map((key) => {
             const SectionComponent = registry[key];
             return <SectionComponent key={key} />;

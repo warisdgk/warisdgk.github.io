@@ -26,6 +26,35 @@ export interface SocialLink {
   icon: 'github' | 'linkedin' | 'toptal' | 'stackoverflow' | 'mail' | 'globe' | 'medium';
 }
 
+export interface AboutImageConfig {
+  /** Turn the About portrait on or off. */
+  enabled: boolean;
+  /**
+   * Public path, for example "/profile-img.png", or a full https URL.
+   * Leave empty to hide the portrait.
+   */
+  src: string;
+  /** Alt text. Leave empty to use the site name. */
+  alt: string;
+}
+
+export interface BlogConfig {
+  /** Turn the blog route and the home page Blog button on or off. */
+  enabled: boolean;
+  /** Show the search box and tag list on the blog index and tag pages. */
+  search: boolean;
+  /** Small label above the index heading. */
+  eyebrow: string;
+  /** Index heading. */
+  title: string;
+  /** Index description, also used for SEO and the RSS feed. */
+  description: string;
+  /** How many posts appear on each blog index page. The sample posts use 1 so the pager has a second page. Raise this as the archive grows. */
+  postsPerPage: number;
+  /** Public path of the generated RSS feed. */
+  rssPath: string;
+}
+
 export interface SiteConfig {
   /** Shown in the browser tab and used across SEO meta. */
   name: string;
@@ -71,6 +100,15 @@ export interface SiteConfig {
 
   /** Nav order. Only keys that are also enabled above will render. */
   navOrder: SectionKey[];
+
+  /**
+   * Portrait floated at the right of the first About paragraph. The copy
+   * wraps around it. Set enabled to false, or leave src empty, to hide it.
+   */
+  aboutImage: AboutImageConfig;
+
+  /** Blog index, article pages, and RSS. Posts live in content/blog. */
+  blog: BlogConfig;
 }
 
 export const siteConfig: SiteConfig = {
@@ -78,7 +116,7 @@ export const siteConfig: SiteConfig = {
   logoText: 'Waris',
   role: 'Senior Android Engineer',
   tagline:
-    'Developed 30+ production-grade Android applications across FinTech, e-wallets, AI, logistics, distribution, ride-hailing, and on-demand services.',
+    '30+ Apps shipped across FinTech, e-wallets, AI, logistics, distribution, ride-hailing, and on-demand services.',
   location: 'Islamabad, Pakistan',
   email: 'warisdgk@gmail.com',
   phone: '',
@@ -91,10 +129,10 @@ export const siteConfig: SiteConfig = {
   accentRGBDark: '59 130 246', // #3B82F6
 
   heroRotatingWords: [
-    'Kotlin & Jetpack Compose',
-    'Security Specialist',
     'Fintech',
     'AI Native',
+    'Jetpack Compose',
+    'Kotlin',
   ],
 
   socials: [
@@ -127,4 +165,21 @@ export const siteConfig: SiteConfig = {
     'certifications',
     'contact',
   ],
+
+  aboutImage: {
+    enabled: true,
+    src: '/profile-img.png',
+    alt: '',
+  },
+
+  blog: {
+    enabled: true,
+    search: false,
+    eyebrow: 'Beyond the Code',
+    title: "A Developer's Journey",
+    description:
+      "Hello!👋 Welcome to my little corner of the tech world. I write about Android, Kotlin and my journey as a software engineer.",
+    postsPerPage: 10,
+    rssPath: '/rss.xml',
+  },
 };
