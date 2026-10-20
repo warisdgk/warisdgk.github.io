@@ -12,6 +12,7 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeStringify from 'rehype-stringify';
 import { visit } from 'unist-util-visit';
 import type { Element, Root } from 'hast';
+import type { Root as MarkdownRoot } from 'mdast';
 import { siteConfig } from '@/config/site.config';
 import { asset } from '@/lib/asset';
 import {
@@ -154,6 +155,81 @@ function extractHeadings(markdown: string): TocHeading[] {
   return headings;
 }
 
+function remarkImageAttributes(sourceFile: string) {
+  return (tree: MarkdownRoot) => {
+    visit(tree, 'image', (image, index, parent) => {
+      if (index === undefined || !parent) return;
+
+      const following = parent.children[index + 1];
+      if (following?.type !== 'text') return;
+
+      const attributeMatch = /^(\s*)\{([^{}]+)\}/.exec(following.value);
+      if (!attributeMatch || !/(?:^|\s)(?:width|height|align)=/.test(attributeMatch[2])) return;
+
+      const dimensions: Partial<Record<'width' | 'height', number>> = {};
+      let alignment: 'left' | 'center' | 'right' | undefined;
+      for (const attribute of attributeMatch[2].trim().split(/\s+/)) {
+        const match = /^(width|height|align)=(.+)$/.exec(attribute);
+        if (!match) {
+          fail(
+            sourceFile,
+            `invalid image attribute "${attribute}", use width=<pixels>, height=<pixels>, or align=left|center|right`,
+          );
+        }
+
+        if (match[1] === 'align') {
+          if (
+            (match[2] !== 'left' && match[2] !== 'center' && match[2] !== 'right') ||
+            alignment !== undefined
+          ) {
+            fail(
+              sourceFile,
+              `invalid or repeated image alignment "${attribute}", use align=left, align=center, or align=right`,
+            );
+          }
+          alignment = match[2];
+          continue;
+        }
+
+        if (!/^\d+$/.test(match[2])) {
+          fail(sourceFile, `invalid image dimension "${attribute}", use a positive pixel value`);
+        }
+        const value = Number(match[2]);
+        const dimension = match[1] === 'width' ? 'width' : 'height';
+        if (!Number.isSafeInteger(value) || value < 1 || dimensions[dimension] !== undefined) {
+          fail(sourceFile, `invalid or repeated image dimension "${attribute}"`);
+        }
+        dimensions[dimension] = value;
+      }
+
+      const styles: string[] = [];
+      if (alignment) {
+        styles.push('display:block', 'width:auto');
+        styles.push(
+          dimensions.width === undefined
+            ? 'max-width:100%'
+            : `max-width:min(100%,${dimensions.width}px)`,
+        );
+        styles.push(`margin-left:${alignment === 'left' ? '0' : 'auto'}`);
+        styles.push(`margin-right:${alignment === 'right' ? '0' : 'auto'}`);
+      } else if (dimensions.width !== undefined) {
+        styles.push(`max-width:${dimensions.width}px`);
+      }
+      if (dimensions.height !== undefined) styles.push(`max-height:${dimensions.height}px`);
+      image.data = {
+        ...image.data,
+        hProperties: {
+          ...image.data?.hProperties,
+          style: styles.join(';'),
+        },
+      };
+
+      following.value = following.value.slice(attributeMatch[0].length);
+      if (!following.value) parent.children.splice(index + 1, 1);
+    });
+  };
+}
+
 function rehypeArticle(sourceFile: string) {
   return (tree: Root) => {
     visit(tree, 'element', (node) => {
@@ -197,6 +273,7 @@ async function renderMarkdown(markdown: string, sourceFile: string): Promise<str
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkImageAttributes, sourceFile)
     .use(remarkRehype)
     .use(rehypeArticle, sourceFile)
     .use(rehypeSlug)
