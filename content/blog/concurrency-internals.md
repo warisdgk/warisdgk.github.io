@@ -125,4 +125,4 @@ It’s all theory…!!! 😴
 
 Sounds boring, right?
 
-No worries! Let’s dive into how threading machinery work together in the next post. Stay tuned! 🔥
+No worries! Let’s dive into how Android's Main UI threading machinery work together in [This Post](../handler-looper-message-queue/)🔥
